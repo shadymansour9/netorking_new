@@ -2,7 +2,7 @@ const http = require('http');
 const WebSocket = require('ws');
 
 // Define your WebSocket URL (useful for logging or other purposes)
-const websocketUrl = 'wss://netorking-new-59ln.vercel.app/'; // Replace with your actual URL
+const websocketUrl = 'http://netorking-new-59ln.vercel.app/'; // Replace with your actual URL
 
 const server = http.createServer((req, res) => {
   res.writeHead(200);
