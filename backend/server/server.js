@@ -10,7 +10,7 @@ const port = 3005; // Define the port here
 // Middleware
 app.use(bodyParser.json());
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://networking-lotw.vercel.app'], // Allow requests from both local development and deployed frontend
+  origin: ['http://localhost:3000', 'https://networking-lotw.vercel.app','https://netorking-new.vercel.app/'], // Allow requests from both local development and deployed frontend
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
   credentials: true // Allow cookies and other credentials
