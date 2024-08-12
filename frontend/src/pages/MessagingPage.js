@@ -13,7 +13,7 @@ const MessagingPage = () => {
   const [isVideoCallActive, setIsVideoCallActive] = useState(false);
 
   // Update the WebSocket URL to use your deployed server
-  const websocketUrl = `http://netorking-new-59ln.vercel.app/`;
+  const websocketUrl = `https://netorking-new-59ln.vercel.app/`;
 
   // WebSocket setup for messaging and signaling
   const { sendMessage, lastMessage, readyState } = useWebSocket(
