@@ -1,5 +1,5 @@
 const http = require('https');
-const WebSocket = require('ws');
+const WebSocket = require('wss');
 
 // Define your WebSocket URL (useful for logging or other purposes)
 const websocketUrl = 'https://netorking-new-59ln.vercel.app/'; // Replace with your actual URL
@@ -12,13 +12,13 @@ const server = http.createServer((req, res) => {
 
 const wss = new WebSocket.Server({ noServer: true });
 
-wss.on('connection', (ws) => {
+wss.on('connection', (wss) => {
   console.log(`New WebSocket client connected at ${websocketUrl}`);
 
-  ws.on('message', (message) => {
+  wss.on('message', (message) => {
     console.log(`Received message => ${message}`);
     // Handle message quickly and asynchronously
-    processMessage(message, ws);
+    processMessage(message, wss);
   });
 
   ws.on('close', () => {
@@ -27,8 +27,8 @@ wss.on('connection', (ws) => {
 });
 
 server.on('upgrade', (request, socket, head) => {
-  wss.handleUpgrade(request, socket, head, (ws) => {
-    wss.emit('connection', ws, request);
+  wss.handleUpgrade(request, socket, head, (wss) => {
+    wss.emit('connection', wss, request);
   });
 });
 
@@ -38,9 +38,9 @@ server.listen(process.env.PORT || 3000, () => {
 });
 
 // Example function for processing messages asynchronously
-function processMessage(message, ws) {
+function processMessage(message, wss) {
   // Asynchronous operation to avoid blocking
   setImmediate(() => {
-    ws.send(`Echo: ${message}`);
+    wss.send(`Echo: ${message}`);
   });
 }
