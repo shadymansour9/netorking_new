@@ -9,8 +9,10 @@ const port = 3005; // Define the port here
 
 // Middleware
 app.use(bodyParser.json());
+
+// CORS configuration
 app.use(cors({
-  origin: ['http://localhost:3000', 'https://netorking-new.vercel.app/'], // Allow requests from both local development and deployed frontend
+  origin: ['http://localhost:3000', 'https://netorking-new.vercel.app'], // Remove the trailing slash in the deployed frontend URL
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allow specific methods
   allowedHeaders: ['Content-Type', 'Authorization'], // Allow specific headers
   credentials: true // Allow cookies and other credentials
